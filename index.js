@@ -6,17 +6,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-var empowherment_sessions = require('./routes/empowhermentSessions');
-var wellness_sessions = require('./routes/wellnessSessions');
-var professional_development_sessions = require('./routes/professionalDevelopmentSessions');
+var events = require('./routes/events');
+var resources = require('./routes/resources');
 var study_group_sessions = require('./routes/studyGroupSessions');
-var tutoring_sessions = require('./routes/tutoringSessions');
+var discussions = require('./routes/discussions');
+var faq = require('./routes/faq');
 
-app.use('/empowherment-sessions', empowherment_sessions);
-app.use('/wellness-sessions', wellness_sessions);
-app.use('/professional-development-sessions', professional_development_sessions);
+app.use('/events', events);
+app.use('/resources', resources);
 app.use('/study-group-sessions', study_group_sessions);
-app.use('/tutoring-sessions', tutoring_sessions);
+app.use('/discussions', discussions);
+app.use('/faq', faq);
 
 app.get("/api", (req, res) => {
   console.log('endpoint hit')

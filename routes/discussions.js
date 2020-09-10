@@ -2,9 +2,9 @@ const express = require('express');
 var router = express.Router();
 
 // require controller modules
-const wellnessSessionsController = require('../controllers/wellnessSessionsController');
+const discussionsController = require('../controllers/discussionsController');
 
 // authentication routes
-router.get('/', wellnessSessionsController.index);
+router.get('/', discussionsController.index);
 
 module.exports = router;

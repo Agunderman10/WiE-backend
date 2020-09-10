@@ -2,9 +2,9 @@ const express = require('express');
 var router = express.Router();
 
 // require controller modules
-const tutoringSessionsController = require('../controllers/tutoringSessionsController');
+const faqController = require('../controllers/faqController');
 
 // authentication routes
-router.get('/', tutoringSessionsController.index);
+router.get('/', faqController.index);
 
 module.exports = router;
