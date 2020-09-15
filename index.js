@@ -6,12 +6,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+var auth = require('./routes/authentication');
 var events = require('./routes/events');
 var resources = require('./routes/resources');
 var study_group_sessions = require('./routes/studyGroupSessions');
 var discussions = require('./routes/discussions');
 var faq = require('./routes/faq');
 
+app.use('/', auth);
 app.use('/events', events);
 app.use('/resources', resources);
 app.use('/study-group-sessions', study_group_sessions);
