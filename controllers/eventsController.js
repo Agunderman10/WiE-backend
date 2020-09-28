@@ -7,7 +7,7 @@ exports.index = function (req, res) {
       console.log(error);
       res.send("error in connection");
     } else {
-      const SELECT_LABELS_SQL = "SELECT label FROM events;";
+      const SELECT_LABELS_SQL = "SELECT label, type FROM events;";
 
       dbh.query(SELECT_LABELS_SQL, (error, results) => {
         if (error) {
