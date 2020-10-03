@@ -7,4 +7,7 @@ const authenticationController = require('../controllers/authenticationControlle
 // authentication routes
 router.get('/', authenticationController.index);
 
+// signin router
+router.post('/signin', authenticationController.sign_in_post)
+
 module.exports = router;
