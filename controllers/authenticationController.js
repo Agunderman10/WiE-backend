@@ -24,5 +24,5 @@ exports.index = function (req, res) {
 };
 
 exports.sign_in_post = function (req, res) {
-  res.send(({message: 'Test test'}));
+  res.send({ message: "Test test" });
 };
