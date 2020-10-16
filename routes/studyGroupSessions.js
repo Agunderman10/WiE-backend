@@ -7,4 +7,6 @@ const studyGroupSessionsController = require('../controllers/studyGroupSessionsC
 // authentication routes
 router.get('/', studyGroupSessionsController.index);
 
+router.post('/', studyGroupSessionsController.postStudyGroup);
+
 module.exports = router;
