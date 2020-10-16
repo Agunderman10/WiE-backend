@@ -94,7 +94,7 @@ exports.postEvent = function (req, res) {
       const timeIsAmOrPm = req.body.timeIsAmOrPm;
       const type = req.body.selectedCategory;
       const SELECT_LABELS_SQL =
-        "INSERT INTO events(label, link, date, time, type) VALUES(\'" +
+        "INSERT INTO events(label, link, date, time, timeIsAmOrPm, type) VALUES(\'" +
         label +
         "\',\'" +
         link +
@@ -102,6 +102,8 @@ exports.postEvent = function (req, res) {
         date +
         "\',\'" +
         time +
+        "\',\'" +
+        timeIsAmOrPm +
         "\',\'" +
         type +
         "\');";
