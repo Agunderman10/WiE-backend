@@ -37,7 +37,7 @@ exports.postStudyGroup = function (req, res) {
       const timeIsAmOrPm = req.body.timeIsAmOrPm;
       const type = req.body.selectedCategory;
       const SELECT_LABELS_SQL =
-        "INSERT INTO study_groups(label, link, date, time, class) VALUES(\'" +
+        "INSERT INTO study_groups(label, link, date, time, timeIsAmOrPm, class) VALUES(\'" +
         label +
         "\',\'" +
         link +
@@ -45,6 +45,8 @@ exports.postStudyGroup = function (req, res) {
         date +
         "\',\'" +
         time +
+        "\',\'" +
+        timeIsAmOrPm +
         "\',\'" +
         type +
         "\');";
