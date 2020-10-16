@@ -7,7 +7,7 @@ exports.index = function (req, res) {
       console.log(error);
       res.send("error in connection");
     } else {
-      const SELECT_LABELS_SQL = "SELECT label, time, class FROM study_groups LIMIT 60;";
+      const SELECT_LABELS_SQL = "SELECT label, link, date, time, timeIsAmOrPm, class FROM study_groups LIMIT 60;";
 
       dbh.query(SELECT_LABELS_SQL, (error, results) => {
         if (error) {
