@@ -92,8 +92,8 @@ exports.post_accept_study_group_request = function (req, res) {
         timeIsAmOrPm +
         "','" +
         type +
-        "');"; 
-        const DELETE_ACCEPTED_STUDY_GROUP = "DELETE FROM requests WHERE link=?;";
+        "');";
+      const DELETE_ACCEPTED_STUDY_GROUP = "DELETE FROM requests WHERE link=?;";
 
       dbh.query(SELECT_LABELS_SQL, (error, results) => {
         if (error) {
@@ -105,16 +105,40 @@ exports.post_accept_study_group_request = function (req, res) {
         }
       });
 
-    dbh.query(DELETE_ACCEPTED_STUDY_GROUP, [link], (error, results) => {
-      if (error) {
-        connection.release();
-        console.log(error);
-        res.send("error in query");
-      } else {
-        connection.release();
-        res.send(results);
-      }
-    });
-  }
+      dbh.query(DELETE_ACCEPTED_STUDY_GROUP, [link], (error, results) => {
+        if (error) {
+          connection.release();
+          console.log(error);
+          res.send("error in query");
+        } else {
+          connection.release();
+          res.send(results);
+        }
+      });
+    }
+  });
+};
+
+exports.delete_declined_study_group = function (req, res) {
+  dbh.getConnection((error, connection) => {
+    if (error) {
+      connection.release();
+      console.log(error);
+      res.send("error in connection");
+    } else {
+      const link = req.query.link;
+      const DELETE_REQUEST_SQL = "DELETE FROM requests WHERE link=?";
+
+      dbh.query(DELETE_REQUEST_SQL, [link], (error, results) => {
+        if (error) {
+          connection.release();
+          console.log(error);
+          res.send("error in query");
+        } else {
+          connection.release();
+          res.send(results);
+        }
+      });
+    }
   });
 };
