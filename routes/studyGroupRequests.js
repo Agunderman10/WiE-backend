@@ -9,4 +9,6 @@ router.get('/', studyGroupRequestsController.get_study_group_requests);
 
 router.post('/', studyGroupRequestsController.post_study_group_request);
 
+router.post('/accept', studyGroupRequestsController.post_accept_study_group_request);
+
 module.exports = router;
