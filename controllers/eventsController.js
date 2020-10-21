@@ -85,7 +85,7 @@ exports.postEvent = function (req, res) {
     if (error) {
       connection.release();
       console.log(error);
-      res.send("error in connection");
+      res.send({ success: 0 });
     } else {
       const label = req.body.name;
       const link = req.body.link;
@@ -115,7 +115,8 @@ exports.postEvent = function (req, res) {
           res.send("error in query");
         } else {
           connection.release();
-          res.send(results);
+          console.log("Success!");
+          res.send({ success: 1 });
         }
       });
     }
