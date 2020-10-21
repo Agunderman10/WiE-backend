@@ -112,7 +112,7 @@ exports.postEvent = function (req, res) {
         if (error) {
           connection.release();
           console.log(error);
-          res.send("error in query");
+          res.send({ success: 0 });
         } else {
           connection.release();
           console.log("Success!");
