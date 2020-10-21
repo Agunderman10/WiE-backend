@@ -29,7 +29,7 @@ exports.post_study_group_request = function (req, res) {
     if (error) {
       connection.release();
       console.log(error);
-      res.send("error in connection");
+      res.send({ success: 0 });
     } else {
       const label = req.body.name;
       const link = req.body.link;
@@ -59,7 +59,7 @@ exports.post_study_group_request = function (req, res) {
           res.send("error in query");
         } else {
           connection.release();
-          res.send(results);
+          res.send({ success: 1 });
         }
       });
     }
