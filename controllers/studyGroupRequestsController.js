@@ -124,7 +124,7 @@ exports.delete_declined_study_group = function (req, res) {
     if (error) {
       connection.release();
       console.log(error);
-      res.send("error in connection");
+      res.send({ success: 0 });
     } else {
       const link = req.query.link;
       const DELETE_REQUEST_SQL = "DELETE FROM requests WHERE link=?";
@@ -133,10 +133,10 @@ exports.delete_declined_study_group = function (req, res) {
         if (error) {
           connection.release();
           console.log(error);
-          res.send("error in query");
+          res.send({ success: 0 });
         } else {
           connection.release();
-          res.send(results);
+          res.send({ success: 1 });
         }
       });
     }
