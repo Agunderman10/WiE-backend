@@ -109,7 +109,7 @@ exports.post_accept_study_group_request = function (req, res) {
         if (error) {
           connection.release();
           console.log(error);
-          res.send("error in query");
+          res.send({ success: 0 });
         } else {
           connection.release();
           res.send({ success: 1 });
