@@ -28,7 +28,7 @@ exports.postStudyGroup = function (req, res) {
     if (error) {
       connection.release();
       console.log(error);
-      res.send("error in connection");
+      res.send({ success: 0 });
     } else {
       const label = req.body.name;
       const link = req.body.link;
@@ -55,10 +55,10 @@ exports.postStudyGroup = function (req, res) {
         if (error) {
           connection.release();
           console.log(error);
-          res.send("error in query");
+          res.send({ success: 0 });
         } else {
           connection.release();
-          res.send(results);
+          res.send({ success: 1 });
         }
       });
     }
