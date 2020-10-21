@@ -71,7 +71,7 @@ exports.post_accept_study_group_request = function (req, res) {
     if (error) {
       connection.release();
       console.log(error);
-      res.send("error in connection");
+      res.send({ success: 0 });
     } else {
       const label = req.body.label;
       const link = req.body.link;
