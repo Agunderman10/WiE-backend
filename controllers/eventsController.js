@@ -1,6 +1,6 @@
 const dbh = require("../database/index");
 
-exports.index = function (req, res) {
+exports.getEvents = function (req, res) {
   dbh.getConnection((error, connection) => {
     if (error) {
       connection.release();
