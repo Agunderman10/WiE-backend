@@ -5,6 +5,6 @@ var router = express.Router();
 const discussionsController = require('../controllers/discussionsController');
 
 // authentication routes
-router.get('/', discussionsController.index);
+router.get('/', discussionsController.getDiscussions);
 
 module.exports = router;
